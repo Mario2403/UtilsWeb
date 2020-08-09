@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <BarraSuperior/>
+      <BarraSuperior title="Inicio"/>
     </v-main>
   </v-app>
 </template>
