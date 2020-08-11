@@ -1,17 +1,16 @@
 <template>
-  <div class="home">
-    <BarraSuperior title="Inicio"/>
-  </div>
+<BarraSuperior title="Calendario"/>
 </template>
 
+
 <script>
-// @ is an alias to /src
+
 import BarraSuperior from "@/components/BarraSuperior.vue";
 
 export default {
-  name: "Home",
+name: "Calendario",
   components: {
     BarraSuperior
   }
-};
+}
 </script>

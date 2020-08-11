@@ -5,7 +5,8 @@
         color="white"
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
-      <v-toolbar-title light>{{ title }}</v-toolbar-title>
+            <v-spacer />
+      <v-toolbar-title light class="title">{{ title }}</v-toolbar-title>
 
       <v-spacer />
       <v-btn icon href="https://github.com/Mario2403/UtilsWeb">
@@ -20,13 +21,19 @@
       temporary
       color="#00A9A5"
       dark
+      expand-on-hover=true
     >
       <v-list nav>
         <v-list-item-group
           v-model="group"
           active-class="deep-purple--text text--accent-4"
         >
-          <v-list-item link :key="item.title" v-for="item in items">
+          <v-list-item 
+          link 
+          :key="item.title" 
+          v-for="item in items" 
+          router :to="item.route"
+          class="item">
             <v-icon color="#FFFFFF">{{ item.icon }}</v-icon>
 
             <v-list-item-content>
@@ -48,10 +55,10 @@ export default {
       drawer: false,
       group: null,
       items: [
-        { title: "Control de horas", icon: "mdi-clock-time-four-outline" },
-        { title: "Calendario", icon: "mdi-calendar-outline" },
-        { title: "Notas", icon: "mdi-note-outline" },
-        { title: "Utilidades", icon: "mdi-ruler" }
+        { title: "Control de horas", icon: "mdi-clock-time-four-outline", route:"/" },
+        { title: "Calendario", icon: "mdi-calendar-outline", route:"Calendario" },
+        { title: "Notas", icon: "mdi-note-outline", route:"/" },
+        { title: "Utilidades", icon: "mdi-ruler", route:"/" }
       ]
     };
   },
@@ -62,3 +69,17 @@ export default {
   }
 };
 </script>
+
+
+<style>
+.item{
+  font-family: Avenir, Arial, Helvetica, sans-serif;
+}
+.title{
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+    font-size: 20pt;
+
+}
+
+
+</style>
