@@ -37,7 +37,7 @@
             <v-icon color="#FFFFFF">{{ item.icon }}</v-icon>
 
             <v-list-item-content>
-              <v-list-item-title> {{ item.title }}</v-list-item-title>
+              <v-list-item-title class="item-title"> {{ item.title }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-item-group>
@@ -58,6 +58,7 @@ export default {
         { title: "Control de horas", icon: "mdi-clock-time-four-outline", route:"/" },
         { title: "Calendario", icon: "mdi-calendar-outline", route:"Calendario" },
         { title: "Notas", icon: "mdi-note-outline", route:"/" },
+        {title: "Estadísticas", icon: "mdi-chart-areaspline", route:"Estadisticas"},
         { title: "Utilidades", icon: "mdi-ruler", route:"/" }
       ]
     };
@@ -79,6 +80,10 @@ export default {
     font-family: Avenir, Arial, Helvetica, sans-serif;
     font-size: 20pt;
 
+}
+.item-title{
+  padding-left: 15px;
+  font-size: 15pt;
 }
 
 

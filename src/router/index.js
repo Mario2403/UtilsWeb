@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import CalendarioView from "../views/CalendarioView.vue";
+import EstadisticasView from "../views/EstadisticasView.vue";
+
 
 
 Vue.use(VueRouter);
@@ -16,6 +18,11 @@ const routes = [
     path:"/Calendario",
     name: "Calendario",
     component: CalendarioView
+  },
+  {
+    path: "/Estadisticas",
+    name:"Estadisticas",
+    component:EstadisticasView
   },
   {
     path: "/about",
