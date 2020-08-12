@@ -38,17 +38,17 @@ setInteractionMode("eager");
 
 extend("required", {
   ...required,
-  message: "{_field_} can not be empty"
+  message: "{_field_} no puede estar vacío"
 });
 
 extend("max", {
   ...max,
-  message: "{_field_} may not be greater than {length} characters"
+  message: "{_field_}no debe superar los {length} caracteres"
 });
 
 extend("email", {
   ...email,
-  message: "Email must be valid"
+  message: "Introduce un email válido"
 });
 
 export default {
@@ -62,16 +62,30 @@ export default {
       name: "",
       email: "",
       select: null,
-      items: ["Item 1", "Item 2", "Item 3", "Item 4"],
+      items: [
+        "General",
+        "Control de horas",
+        "Calendario",
+        "Notas",
+        "Estadísticas",
+        "Utilidades"
+      ],
       checkbox: null
     };
   },
 
   methods: {
-    submit() {
-      this.$refs.observer.validate();
-      console.log("Datos enviados gracias!")
-      this.$emit("close");
+    async submit() {
+      const isValid = await this.$refs.observer.validate();
+      if (isValid) {
+        console.log("Datos enviados, gracias!");
+        alert("Datos enviados gracias!")
+        this.$emit("close");
+      } else {
+        console.log("KO");
+        alert("Datos inválidos")
+
+      }
     },
     clear() {
       this.name = "";
