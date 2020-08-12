@@ -1,5 +1,6 @@
 <template>
   <ValidationObserver ref="observer" v-slot="{  }">
+      <h1>Reportar un problema</h1>
     <form>
       <ValidationProvider v-slot="{ errors }" name="Name" rules="required|max:30">
         <v-text-field v-model="name" :counter="30" :error-messages="errors" label="Nombre" required></v-text-field>
@@ -17,6 +18,16 @@
           required
           outlined
         ></v-select>
+      </ValidationProvider>
+      <ValidationProvider  v-slot="{ errors }" name="text" rules="required|max 500">
+          <v-textarea
+            v-model="text"
+            label="Explica el problema"
+            :error-messages="errors"
+            :counter="500"
+            auto-grow
+            clearable
+          ></v-textarea>
       </ValidationProvider>
 
       <v-btn class="mr-4" @click="submit">submit</v-btn>
@@ -92,6 +103,7 @@ export default {
       this.email = "";
       this.select = null;
       this.checkbox = null;
+      this.text="";
       this.$refs.observer.reset();
     }
   }
