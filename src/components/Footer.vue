@@ -1,5 +1,7 @@
 <template>
   <div>
+      <Modal v-if="showModal" @close="showModal = false"></Modal>
+
     <v-footer padless color="#092327">
 
       <v-card flat tile dark color="#092327" width="100%" class="year-and-name">
@@ -19,7 +21,7 @@
 
           <v-spacer />
 
-          <v-btn icon class="bug-icon">
+          <v-btn icon id="show-modal" @click="showModal = true" class="bug-icon">
             <v-icon size="24px" color="#FFFFFF">mdi-bug</v-icon>
           </v-btn>
         </v-card-actions>
@@ -30,6 +32,7 @@
 
 
 <script>
+import Modal from "@/components/Modal.vue";
 export default {
   name: "Footer",
   data() {
@@ -37,9 +40,12 @@ export default {
       icons: [
         { name: "linkedIn", icon: "mdi-linkedin" },
         {name: "twitter", icon: "mdi-twitter"},
-
-      ]
+      ],
+      showModal: false
     };
+  },
+  components:{
+    Modal
   }
 };
 </script>
