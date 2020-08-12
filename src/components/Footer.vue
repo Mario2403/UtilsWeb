@@ -15,7 +15,7 @@
         <v-card-actions>
           <v-spacer />
 
-          <v-btn v-for="icon in icons" :key="icon" icon>
+          <v-btn v-for="icon in icons" :key="icon.name" icon>
             <v-icon size="24px" color="#FFFFFF">{{ icon.icon }}</v-icon>
           </v-btn>
 
@@ -39,7 +39,7 @@ export default {
     return {
       icons: [
         { name: "linkedIn", icon: "mdi-linkedin" },
-        {name: "twitter", icon: "mdi-twitter"},
+        { name: "twitter", icon: "mdi-twitter"},
       ],
       showModal: false
     };

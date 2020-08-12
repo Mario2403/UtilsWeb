@@ -1,17 +1,13 @@
 <template>
-<BarraSuperior title="Estadísticas"/>
+<div></div>
 </template>
 
 
 <script>
 
-import BarraSuperior from "@/components/BarraSuperior.vue";
 
 export default {
 name: "Estadisticas",
-components:{
-    BarraSuperior
-}
-  
+
 }
 </script>
