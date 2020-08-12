@@ -1,22 +1,29 @@
 <template>
   <div>
-    <v-footer padless color="#00A9A5">
-      <v-card flat tile color="#00A9A5" width="100%">
-        <v-card-title class="dark-text">
-          <strong>Get connected with us on social networks!</strong>
-        <v-spacer/>
-        <v-btn v-for="icon in icons" :key="icon" class="RRSSicon" icon>
-          <v-icon size="24px" color="#000000">{{ icon.icon }}</v-icon>
-        </v-btn>
-       
-         </v-card-title>
+    <v-footer padless color="#092327">
+
+      <v-card flat tile dark color="#092327" width="100%" class="year-and-name">
+        <v-card-text>
+          {{ new Date().getFullYear() }} -
+          <strong>Mario Jurado Soba</strong>
+        </v-card-text>
       </v-card>
-      
-      <v-spacer />
-      <v-card-text class="year-and-name">
-        {{ new Date().getFullYear() }} —
-        <strong>Mario Jurado Soba</strong>
-      </v-card-text>
+      <v-card flat tile color="#092327" width="100%">
+
+        <v-card-actions>
+          <v-spacer />
+
+          <v-btn v-for="icon in icons" :key="icon" icon>
+            <v-icon size="24px" color="#FFFFFF">{{ icon.icon }}</v-icon>
+          </v-btn>
+
+          <v-spacer />
+
+          <v-btn icon class="bug-icon">
+            <v-icon size="24px" color="#FFFFFF">mdi-bug</v-icon>
+          </v-btn>
+        </v-card-actions>
+      </v-card>
     </v-footer>
   </div>
 </template>
@@ -27,7 +34,11 @@ export default {
   name: "Footer",
   data() {
     return {
-      icons: [{ name: "linkedIn", icon: "mdi-linkedin" }]
+      icons: [
+        { name: "linkedIn", icon: "mdi-linkedin" },
+        {name: "twitter", icon: "mdi-twitter"},
+
+      ]
     };
   }
 };
@@ -47,9 +58,5 @@ export default {
   font-family: Avenir, Arial, Helvetica, sans-serif;
   size: 10pt;
   text-align: center;
-  background-color: black;
-}
-.RRSSicon {
-  color: red;
 }
 </style>
