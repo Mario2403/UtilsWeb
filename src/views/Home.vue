@@ -3,7 +3,7 @@
     <v-row>
       <v-col :key="card" v-for="card in cards">
 
-        <v-card display color="#FFDD66" max-width="400" heigth="900" class="d-flex flex-column arrow menu-card">
+        <v-card display color="#FFDD66" max-width="400" heigth="900" router :to="card.route" class="d-flex flex-column arrow menu-card">
           <!-- <v-icon size="150" color="#092327">{{card.icon}}</v-icon> -->
          <v-card-title class= "icono justify-center card-title">⏱️</v-card-title>
 
