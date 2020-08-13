@@ -1,4 +1,4 @@
-<template>
+<template >
 <div>
 <CalendarioComp/>
 </div>
@@ -7,14 +7,12 @@
 
 <script>
 
-//import BarraSuperior from "@/components/BarraSuperior.vue";
 import CalendarioComp from "@/components/CalendarioComp.vue";
 
 
 export default {
 name: "Calendario",
   components: {
-    //BarraSuperior,
     CalendarioComp
   }
 }

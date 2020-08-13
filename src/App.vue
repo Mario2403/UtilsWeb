@@ -3,13 +3,17 @@
     <title>UtilsWeb</title>
     <v-app>
       <v-container fluid>
+        <v-row >
+          <v-col>
         <BarraSuperior title="Calendario" />
-        <v-row no-gutters>
+          </v-col>
+        </v-row>
+        <v-row >
           <v-col class="flex-grow-0 flex-shrink-0">
-          <LeftMenu/>
+            <LeftMenu v-show="!isHome"/>
           </v-col>
           <v-col class="flex-grow-1 flex-shrink-0">
-          <router-view />
+          <router-view @home="isHome = true" />
           </v-col>
         </v-row>
       </v-container>
@@ -28,6 +32,16 @@ export default {
     Footer,
     BarraSuperior,
     LeftMenu
+  },
+  data () {
+    return {
+      isHome:false
+    }
+  },
+  methods: {
+    hola() {
+      console.log("hola");
+    }
   }
 };
 </script>
