@@ -1,19 +1,14 @@
 <template>
   <div>
     <v-row>
-      <v-col :key="card.title" v-for="card in cards">
-        <v-hover
-        v-slot:default="{ hover }"
-        
-      >
-        <v-card display color="#FFDD66" :elevation="hover?20:2" max-width="400" class="d-flex flex-column  menu-card ">
-          <v-icon size="150" color="#092327">{{card.icon}}</v-icon>
+      <v-col :key="card" v-for="card in cards">
+
+        <v-card display color="#FFDD66" max-width="400" heigth="900" class="d-flex flex-column arrow menu-card">
+          <!-- <v-icon size="150" color="#092327">{{card.icon}}</v-icon> -->
+         <v-card-title class= "icono justify-center card-title">⏱️</v-card-title>
 
           <v-card-title class="justify-center card-title">{{card.title}}</v-card-title>
-          <!-- <v-card-subtitle>Subtitulo de la tarjeta</v-card-subtitle>
-          <v-card-text>Textro de la tarjeta</v-card-text> -->
         </v-card>
-        </v-hover>
       </v-col>
     </v-row>
   </div>
@@ -43,7 +38,7 @@ export default {
 <style scoped>
 .menu-card {
   height: 100%;
-
+  max-width: 25%;
   max-height: 400px;
 }
 .menu-card:hover{
@@ -51,5 +46,17 @@ export default {
 }
 .card-title{
   color:black;
+}
+.icono{
+  font-size: 50pt
+}
+
+.arrow {
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+}
+.arrow:hover {
+  top: -10px;
 }
 </style>

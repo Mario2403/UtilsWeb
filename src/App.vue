@@ -1,11 +1,15 @@
 <template>
-  <div>
-    <title>UtilsWeb</title>
+<div >
+   <title>UtilsWeb</title>
+   <v-container>
+    <v-layout justify-center>
+                <v-flex class="text-xs-center">
+
     <v-app>
-      <v-container fluid>
-        <v-row >
+      <v-container >
+        <v-row class = "d-flex" width="400">
           <v-col>
-        <BarraSuperior title="Calendario" />
+        <BarraSuperior />
           </v-col>
         </v-row>
         <v-row >
@@ -19,6 +23,10 @@
       </v-container>
       <Footer />
     </v-app>
+                </v-flex>
+    </v-layout>
+   </v-container>
+  
   </div>
 </template>
 
@@ -46,5 +54,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style >
+#div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 </style>

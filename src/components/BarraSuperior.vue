@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar color="#092327" dark>
+    <v-app-bar elevation="0" color="#FFFFFF" >
       <router-link :to="{name: 'Home'}">
         <v-btn icon>
           <v-icon>mdi-home</v-icon>
@@ -8,12 +8,12 @@
       </router-link>
       <v-spacer />
       <v-toolbar-title light class="title">
-        <h2>{{ title }}</h2>
+        <h2>{{ title }} </h2>
       </v-toolbar-title>
 
       <v-spacer />
       <v-btn icon href="https://github.com/Mario2403/UtilsWeb">
-        <v-icon color="#FFFFFF">mdi-github</v-icon>
+        <v-icon color="#000000">mdi-github</v-icon>
       </v-btn>
     </v-app-bar>
   </div>
