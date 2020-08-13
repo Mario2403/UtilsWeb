@@ -3,8 +3,9 @@
     <v-row >
       <v-col :key="card" v-for="card in cards">
 
-        <v-card display color="#FFDD66" max-width="400" router :to="card.route" class="d-flex flex-column arrow menu-card">
+        <v-card display color="#FFDD66" max-width="400" height="150" router :to="card.route" class="d-flex flex-column arrow menu-card">
           <!-- <v-icon size="150" color="#092327">{{card.icon}}</v-icon> -->
+          <v-spacer/>
          <v-card-title class= "icono justify-center card-title">{{card.icon}}</v-card-title>
 
           <v-card-title class="justify-center card-title">{{card.title}}</v-card-title>
@@ -37,9 +38,9 @@ export default {
 
 <style scoped>
 .menu-card {
-  height: 100%;
+  height: 100;
   max-width: 25%;
-  max-height: 400px;
+
 }
 .menu-card:hover{
   background-color: black;

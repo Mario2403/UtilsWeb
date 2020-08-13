@@ -5,21 +5,21 @@
       <ValidationProvider v-slot="{ errors }" name="Name" rules="required|max:30">
         <v-text-field v-model="name" :counter="30" :error-messages="errors" label="Nombre" required></v-text-field>
       </ValidationProvider>
-      <ValidationProvider v-slot="{ errors }" name="email" rules="required|email">
+      <ValidationProvider v-slot="{ errors }" name="Email" rules="required|email">
         <v-text-field v-model="email" :error-messages="errors" label="E-mail" required></v-text-field>
       </ValidationProvider>
-      <ValidationProvider v-slot="{ errors }" name="select" rules="required">
+      <ValidationProvider v-slot="{ errors }" name="Módulo" rules="required">
         <v-select
           v-model="select"
           :items="items"
           :error-messages="errors"
-          label="Sección del error"
+          label="Módulo"
           data-vv-name="select"
           required
           outlined
         ></v-select>
       </ValidationProvider>
-      <ValidationProvider  v-slot="{ errors }" name="text" rules="required|max 500">
+      <ValidationProvider  v-slot="{ errors }" name="problema" rules="required|max: 500">
           <v-textarea
             v-model="text"
             label="Explica el problema"
@@ -54,7 +54,7 @@ extend("required", {
 
 extend("max", {
   ...max,
-  message: "{_field_}no debe superar los {length} caracteres"
+  message: "El campo no debe superar los {length} caracteres"
 });
 
 extend("email", {
@@ -79,7 +79,8 @@ export default {
         "Calendario",
         "Notas",
         "Estadísticas",
-        "Utilidades"
+        "Utilidades",
+        "Otro"
       ],
       checkbox: null
     };
