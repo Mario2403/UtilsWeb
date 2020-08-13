@@ -2,7 +2,7 @@
   <div>
       <Modal v-if="showModal" @close="showModal = false"></Modal>
 
-    <v-footer padless color="#FFFFFF">
+    <v-footer absolute padless color="#FFFFFF">
 
       <v-card flat tile color="#FFFFFF" width="100%" class="year-and-name">
         <v-card-text>

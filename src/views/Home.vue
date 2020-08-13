@@ -1,11 +1,11 @@
 <template>
   <div>
-    <v-row>
+    <v-row >
       <v-col :key="card" v-for="card in cards">
 
-        <v-card display color="#FFDD66" max-width="400" heigth="900" router :to="card.route" class="d-flex flex-column arrow menu-card">
+        <v-card display color="#FFDD66" max-width="400" router :to="card.route" class="d-flex flex-column arrow menu-card">
           <!-- <v-icon size="150" color="#092327">{{card.icon}}</v-icon> -->
-         <v-card-title class= "icono justify-center card-title">⏱️</v-card-title>
+         <v-card-title class= "icono justify-center card-title">{{card.icon}}</v-card-title>
 
           <v-card-title class="justify-center card-title">{{card.title}}</v-card-title>
         </v-card>
@@ -24,11 +24,11 @@ export default {
   data() {
     return{
       cards:[
-        { title: "Control de horas", icon: "mdi-clock-time-four-outline", route:"/" },
-        { title: "Calendario", icon: "mdi-calendar-outline", route:"Calendario" },
-        { title: "Notas", icon: "mdi-note-outline", route:"/" },
-        { title: "Estadísticas", icon: "mdi-chart-areaspline", route:"Estadisticas"},
-        { title: "Utilidades", icon: "mdi-ruler", route:"/" }
+        { title: "Control de horas", icon: "⏱️", route:"/" },
+        { title: "Calendario", icon: "🗓️", route:"Calendario" },
+        { title: "Notas", icon: "📝", route:"/" },
+        { title: "Estadísticas", icon: "📈", route:"Estadisticas"},
+        { title: "Utilidades", icon: "📐", route:"/" }
       ]
     }
   }
