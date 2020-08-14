@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row >
-      <v-col :key="card" v-for="card in cards">
+      <v-col :key="card.title" v-for="card in cards">
 
         <v-card display color="#FFDD66" max-width="400" height="150" router :to="card.route" class="d-flex flex-column arrow menu-card">
           <!-- <v-icon size="150" color="#092327">{{card.icon}}</v-icon> -->
