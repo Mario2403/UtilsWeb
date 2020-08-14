@@ -34,7 +34,7 @@
           </v-col>
         </v-row>
       </v-card-actions>
-           <v-card-actions>
+      <v-card-actions>
         <v-row width="100%">
           <v-col>
             <v-card flat>
@@ -50,7 +50,7 @@
           </v-col>
         </v-row>
       </v-card-actions>
-           <v-card-actions>
+      <v-card-actions>
         <v-row width="100%">
           <v-col>
             <v-card flat>
@@ -66,7 +66,7 @@
           </v-col>
         </v-row>
       </v-card-actions>
-           <v-card-actions>
+      <v-card-actions>
         <v-row width="100%">
           <v-col>
             <v-card flat>
@@ -91,11 +91,11 @@ export default {
   name: "ByteConverter",
   data() {
     return {
-      Byte: 0,
-      KiloByte: 0,
-      MegaByte: 0,
-      GigaByte: 0,
-      TeraByte: 0,
+      Byte: "",
+      KiloByte: "",
+      MegaByte: "",
+      GigaByte: "",
+      TeraByte: "",
 
       conversor: {
         units: [
@@ -117,30 +117,65 @@ export default {
   methods: {
     calcula(type) {
       if (type == "byte") {
-        this.KiloByte = parseInt(this.Byte, 10) / 1024;
-        this.MegaByte = parseInt(this.Byte, 10) / (1024 * 1024);
-        this.GigaByte = parseInt(this.Byte, 10) / (1024 * 1024 * 1024);
-        this.TeraByte = parseInt(this.Byte, 10) / (1024 * 1024 * 1024 * 1024);
+        if (this.Byte == "") {
+          this.KiloByte = "";
+          this.MegaByte = "";
+          this.GigaByte = "";
+          this.TeraByte = "";
+        } else {
+          this.KiloByte = parseInt(this.Byte, 10) / 1024;
+          this.MegaByte = parseInt(this.Byte, 10) / (1024 * 1024);
+          this.GigaByte = parseInt(this.Byte, 10) / (1024 * 1024 * 1024);
+          this.TeraByte = parseInt(this.Byte, 10) / (1024 * 1024 * 1024 * 1024);
+        }
       } else if (type == "kilo") {
-        this.Byte = parseInt(this.KiloByte, 10) * 1024;
-        this.MegaByte = parseInt(this.KiloByte, 10) / 1024;
-        this.GigaByte = parseInt(this.KiloByte, 10) / (1024 * 1024);
-        this.TeraByte = parseInt(this.KiloByte, 10) / (1024 * 1024 * 1024);
+        if (this.KiloByte == "") {
+          this.Byte = "";
+          this.MegaByte = "";
+          this.GigaByte = "";
+          this.TeraByte = "";
+        } else {
+          this.Byte = parseInt(this.KiloByte, 10) * 1024;
+          this.MegaByte = parseInt(this.KiloByte, 10) / 1024;
+          this.GigaByte = parseInt(this.KiloByte, 10) / (1024 * 1024);
+          this.TeraByte = parseInt(this.KiloByte, 10) / (1024 * 1024 * 1024);
+        }
       } else if (type == "mega") {
-        this.Byte = parseInt(this.MegaByte, 10) * 1024 * 1024;
-        this.KiloByte = parseInt(this.MegaByte, 10) * 1024;
-        this.GigaByte = parseInt(this.MegaByte, 10) / 1024;
-        this.TeraByte = parseInt(this.MegaByte, 10) / (1024 * 1024);
+        if (this.MegaByte == "") {
+          this.Byte = "";
+          this.KiloByte = "";
+          this.GigaByte = "";
+          this.TeraByte = "";
+        } else {
+          this.Byte = parseInt(this.MegaByte, 10) * 1024 * 1024;
+          this.KiloByte = parseInt(this.MegaByte, 10) * 1024;
+          this.GigaByte = parseInt(this.MegaByte, 10) / 1024;
+          this.TeraByte = parseInt(this.MegaByte, 10) / (1024 * 1024);
+        }
       } else if (type == "giga") {
-        this.Byte = parseInt(this.GigaByte, 10) * 1024 * 1024 * 1024;
-        this.KiloByte = parseInt(this.GigaByte, 10) * 1024 * 1024;
-        this.MegaByte = parseInt(this.GigaByte, 10) * 1024;
-        this.TeraByte = parseInt(this.GigaByte, 10) / 1024;
+        if (this.GigaByte == "") {
+          this.Byte = "";
+          this.KiloByte = "";
+          this.MegaByte = "";
+          this.TeraByte = "";
+        } else {
+          this.Byte = parseInt(this.GigaByte, 10) * 1024 * 1024 * 1024;
+          this.KiloByte = parseInt(this.GigaByte, 10) * 1024 * 1024;
+          this.MegaByte = parseInt(this.GigaByte, 10) * 1024;
+          this.TeraByte = parseInt(this.GigaByte, 10) / 1024;
+        }
       } else if (type == "tera") {
-        this.Byte = parseInt(this.TeraByte, 10) * 1024 * 1024 * 1024 * 1024;
-        this.KiloByte = parseInt(this.TeraByte, 10) * 1024 * 1024 * 1024;
-        this.MegaByte = parseInt(this.TeraByte, 10) * 1024 * 1024;
-        this.GigaByte = parseInt(this.TeraByte, 10) * 1024;
+        if (this.TeraByte == "") {
+          this.Byte = "";
+          this.KiloByte = "";
+          this.MegaByte = "";
+          this.GigaByte = "";
+        } else {
+          this.Byte = parseInt(this.TeraByte, 10) * 1024 * 1024 * 1024 * 1024;
+          this.KiloByte = parseInt(this.TeraByte, 10) * 1024 * 1024 * 1024;
+          this.MegaByte = parseInt(this.TeraByte, 10) * 1024 * 1024;
+          this.GigaByte = parseInt(this.TeraByte, 10) * 1024;
+        }
       }
     }
   }
