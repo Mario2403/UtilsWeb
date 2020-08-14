@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import CalendarioView from "../views/CalendarioView.vue";
 import EstadisticasView from "../views/EstadisticasView.vue";
 import UtilidadesView from "../views/UtilidadesView.vue";
+import TimeTrackerView from "../views/TimeTrackerView.vue";
 
 
 
@@ -24,6 +25,11 @@ const routes = [
     path: "/Estadisticas",
     name:"Estadisticas",
     component: EstadisticasView
+  },
+  {
+    path: "/ControlHoras",
+    name:"Control de Horas",
+    component: TimeTrackerView
   },
   {
     path: "/Utilidades",

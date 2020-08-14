@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-card outlined max-width="320" :style="outlinedStyle">
-      <v-card-title class="title-size">Conversor de Unidades</v-card-title>
+    <v-card outlined :style="outlinedStyle">
+      <v-card-title class="title-size justify-center">Conversor de Unidades</v-card-title>
       <v-card-actions>
         <v-row width="100%">
           <v-col>
@@ -188,5 +188,8 @@ export default {
 }
 .title-size {
   font-size: 20pt;
+}
+.v-card__text, .v-card__title {
+  word-break: normal; /* maybe !important  */
 }
 </style>

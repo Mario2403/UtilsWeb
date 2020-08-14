@@ -25,7 +25,7 @@ export default {
   data() {
     return{
       cards:[
-        { title: "Control de horas", icon: "⏱️", route:"/" },
+        { title: "Control de horas", icon: "⏱️", route:"/ControlHoras" },
         { title: "Calendario", icon: "🗓️", route:"Calendario" },
         { title: "Notas", icon: "📝", route:"/" },
         { title: "Estadísticas", icon: "📈", route:"Estadisticas"},
