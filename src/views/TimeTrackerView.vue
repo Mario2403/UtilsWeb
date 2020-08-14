@@ -11,12 +11,17 @@
         <v-card>
           <v-card style="margin-bottom: 10px; padding:10px" flat :color="proyecto.titleColor.color">
             <v-row>
-              <v-card-title :style="!proyecto.titleColor.dark ? 'color : black' : 'color : white'" >{{proyecto.codigo}} - {{proyecto.name}}</v-card-title>
+              <v-card-title
+                :style="!proyecto.titleColor.dark ? 'color : black' : 'color : white'"
+              >{{proyecto.codigo}} - {{proyecto.name}}</v-card-title>
               <v-spacer />
               <v-menu transition="slide-x-transition" bottom right offset-x="true">
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn icon v-bind="attrs" v-on="on">
-                    <v-icon :color="!proyecto.titleColor.dark ? 'black' : 'white'" class="dark-icon">mdi-palette</v-icon>
+                    <v-icon
+                      :color="!proyecto.titleColor.dark ? 'black' : 'white'"
+                      class="dark-icon"
+                    >mdi-palette</v-icon>
                   </v-btn>
                 </template>
                 <v-list>
@@ -58,7 +63,7 @@
               </v-card-text>
             </v-col>
           </v-row>
-          <v-progress-linear height="6" v-show="proyecto.isPlaying" indeterminate color="success"></v-progress-linear>
+          <v-progress-linear height="4" v-show="proyecto.isPlaying" indeterminate color="success"></v-progress-linear>
         </v-card>
       </v-col>
     </v-row>
@@ -74,16 +79,16 @@ export default {
       showModalProyectos: false,
       isPlaying: false,
       titleColors: [
-          { name: "Azul", color: "blue", dark: true },
-          { name: "Cian", color: "cyan", dark: true  },
-          { name: "Rojo", color: "red", dark: true  },
-          { name: "Naranja", color: "orange", dark: true  },
-          { name: "Verde", color: "green", dark: true  },
-          { name: "Amarillo", color: "yellow", dark: false  },
-          { name: "Rosa", color: "pink", dark: true  },
-          { name: "Negro", color: "black", dark: true  },
-          { name: "Blanco", color: "white", dark: false  },
-          ],
+        { name: "Azul", color: "#0079C4", dark: true },
+        { name: "Cian", color: "#26C1C9", dark: true },
+        { name: "Rojo", color: "#E0102B", dark: true },
+        { name: "Naranja", color: "#FD7B1F", dark: true },
+        { name: "Verde", color: "#81C926", dark: true },
+        { name: "Amarillo", color: "#FACA00", dark: false },
+        { name: "Rosa", color: "#FFB6C1", dark: false },
+        { name: "Negro", color: "black", dark: true },
+        { name: "Blanco", color: "white", dark: false }
+      ],
       proyectos: [
         {
           codigo: "4011",
@@ -91,7 +96,7 @@ export default {
           isPlaying: false,
           time: 0,
           timer: null,
-          titleColor:  { name: "Azul", color: "blue", dark: true },
+          titleColor: { name: "Azul", color: "#0079C4", dark: true },
           tareas: [{ title: "Hacer cosas", completed: false }]
         },
         {
@@ -100,7 +105,7 @@ export default {
           isPlaying: false,
           time: 0,
           timer: null,
-          titleColor:  { name: "Azul", color: "blue", dark: true },
+          titleColor: { name: "Azul", color: "#0079C4", dark: true },
           tareas: []
         }
       ]
