@@ -1,4 +1,4 @@
-<template>
+<template v-slot:activator="{ on, attrs }">
   <div>
     <ModalProyectoForm v-if="showModalProyectos" @close="showModalProyectos = false"></ModalProyectoForm>
     <v-row>
@@ -8,22 +8,55 @@
     </v-row>
     <v-row>
       <v-col :key="proyecto.codigo" v-for="proyecto in proyectos" cols="3">
-        <v-card :style="proyecto.outlineStyle">
-          <v-card-title>{{proyecto.codigo}} - {{proyecto.name}}</v-card-title>
+        <v-card>
+          <v-card style="margin-bottom: 10px; padding:10px" flat :color="proyecto.titleColor.color">
+            <v-row>
+              <v-card-title :style="!proyecto.titleColor.dark ? 'color : black' : 'color : white'" >{{proyecto.codigo}} - {{proyecto.name}}</v-card-title>
+              <v-spacer />
+              <v-menu transition="slide-x-transition" bottom right offset-x="true">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn icon v-bind="attrs" v-on="on">
+                    <v-icon :color="!proyecto.titleColor.dark ? 'black' : 'white'" class="dark-icon">mdi-palette</v-icon>
+                  </v-btn>
+                </template>
+                <v-list>
+                  <v-list-item
+                    v-for="(item, index) in titleColors"
+                    :key="index"
+                    @click="proyecto.titleColor=item"
+                  >
+                    <v-list-item-icon>
+                      <v-icon large :color="item.color">mdi-rectangle</v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-title>{{ item.name }}</v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-row>
+          </v-card>
           <v-card-actions class="justify-center">
-            <v-btn icon  color="#000000">
-              <v-icon size="50px" v-show="!proyecto.isPlaying" @click="playProyecto(proyecto)">mdi-play</v-icon>
-              <v-icon size="50px" v-show="proyecto.isPlaying" @click="stopProyecto(proyecto)">mdi-pause</v-icon>
+            <v-btn icon color="#000000">
+              <v-icon
+                size="50px"
+                v-show="!proyecto.isPlaying"
+                @click="playProyecto(proyecto)"
+              >mdi-play</v-icon>
+              <v-icon
+                size="50px"
+                v-show="proyecto.isPlaying"
+                @click="stopProyecto(proyecto)"
+              >mdi-pause</v-icon>
             </v-btn>
           </v-card-actions>
           <v-row>
-              <v-col>
-          <v-card-subtitle class="big-text">{{convertSecondsToHuman(proyecto.time)}}</v-card-subtitle>
-              </v-col>
-              <v-col class="align-rigth">
-                <v-card-text class="text-right" :class="proyecto.isPlaying ? 'mode-on' : 'mode-on' ">
-                    <strong>{{proyecto.isPlaying ? 'ON' : 'OFF'}}</strong></v-card-text>
-              </v-col>
+            <v-col>
+              <v-card-subtitle class="big-text">{{convertSecondsToHuman(proyecto.time)}}</v-card-subtitle>
+            </v-col>
+            <v-col class="align-rigth">
+              <v-card-text class="text-right" :class="proyecto.isPlaying ? 'mode-on' : 'mode-on' ">
+                <strong>{{proyecto.isPlaying ? 'ON' : 'OFF'}}</strong>
+              </v-card-text>
+            </v-col>
           </v-row>
           <v-progress-linear height="6" v-show="proyecto.isPlaying" indeterminate color="success"></v-progress-linear>
         </v-card>
@@ -40,26 +73,35 @@ export default {
     return {
       showModalProyectos: false,
       isPlaying: false,
+      titleColors: [
+          { name: "Azul", color: "blue", dark: true },
+          { name: "Cian", color: "cyan", dark: true  },
+          { name: "Rojo", color: "red", dark: true  },
+          { name: "Naranja", color: "orange", dark: true  },
+          { name: "Verde", color: "green", dark: true  },
+          { name: "Amarillo", color: "yellow", dark: false  },
+          { name: "Rosa", color: "pink", dark: true  },
+          { name: "Negro", color: "black", dark: true  },
+          { name: "Blanco", color: "white", dark: false  },
+          ],
       proyectos: [
         {
           codigo: "4011",
-          name: "Nueva asdadsq",
+          name: "Evolutivos Movistar Cloud",
           isPlaying: false,
           time: 0,
           timer: null,
-          outlineStyle: "",
-          tareas:[
-              {title: "Hacer cosas", completed: false}
-          ]
+          titleColor:  { name: "Azul", color: "blue", dark: true },
+          tareas: [{ title: "Hacer cosas", completed: false }]
         },
         {
           codigo: "1234",
-          name: "Proyecto nuevo",
+          name: "PCM - NEN",
           isPlaying: false,
           time: 0,
           timer: null,
-          outlineStyle: "",
-          tareas:[]
+          titleColor:  { name: "Azul", color: "blue", dark: true },
+          tareas: []
         }
       ]
     };
@@ -72,16 +114,13 @@ export default {
       this.proyectos.forEach(p => {
         p.isPlaying = false;
         clearInterval(p.timer);
-        p.outlineStyle = "";
       });
       playingProyecto.isPlaying = true;
       this.startTimer(playingProyecto);
-      playingProyecto.outlineStyle = "";
     },
     stopProyecto(playingProyecto) {
       playingProyecto.isPlaying = false;
       this.stopTimer(playingProyecto);
-      playingProyecto.outlineStyle = "";
     },
     startTimer(proyecto) {
       var timer = setInterval(() => (proyecto.time = proyecto.time += 1), 1000);
@@ -110,29 +149,31 @@ export default {
       return time;
     }
   },
-  destroyed(){
-      //backend update
-      console.log(this.proyectos);
+  destroyed() {
+    //backend update
+    console.log(this.proyectos);
   },
-  mounted(){
-      //update proyects in backend
-      setInterval(() => console.log("update de proyectos en back -> " + this.proyectos), 10000);
-      
+  mounted() {
+    //update proyects in backend
+    setInterval(
+      () => console.log("update de proyectos en back -> " + this.proyectos),
+      10000
+    );
   }
 };
 </script>
 
 <style scoped>
-.big-text{
-    font-size: 20pt;
+.big-text {
+  font-size: 20pt;
 }
 
-.mode-on{
-    font-size: 25pt;
-    color:green;
+.mode-on {
+  font-size: 25pt;
+  color: green;
 }
-.mode-off{
-    font-size: 30pt;
-    color:red;
+.mode-off {
+  font-size: 30pt;
+  color: red;
 }
 </style>
