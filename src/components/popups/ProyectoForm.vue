@@ -68,7 +68,7 @@ export default {
   data() {
     return {
       name: "",
-      codigo: null
+      codigo: null,
     };
   },
 
@@ -90,5 +90,6 @@ export default {
       this.$refs.observer.reset();
     }
   }
+  
 };
 </script>
