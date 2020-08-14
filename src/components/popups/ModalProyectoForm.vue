@@ -3,7 +3,7 @@
     <div class="modal-mask">
       <div class="modal-wrapper" @click="$emit('close')">
         <div class="modal-container" @click.stop >
-          <BugForm @close="$emit('close')" ></BugForm>
+          <ProyectoForm @close="$emit('close')" ></ProyectoForm>
         </div>
       </div>
     </div>
@@ -12,11 +12,11 @@
 
 
 <script>
-import BugForm from "@/components/BugForm.vue";
+import ProyectoForm from "@/components/popups/ProyectoForm.vue";
 export default {
   name: "Modal",
   components: {
-    BugForm
+    ProyectoForm
   }
 };
 </script>

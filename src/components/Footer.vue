@@ -32,7 +32,7 @@
 
 
 <script>
-import Modal from "@/components/Modal.vue";
+import Modal from "@/components/popups/ModalBugForm.vue";
 export default {
   name: "Footer",
   data() {
