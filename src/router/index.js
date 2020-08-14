@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import CalendarioView from "../views/CalendarioView.vue";
 import EstadisticasView from "../views/EstadisticasView.vue";
+import UtilidadesView from "../views/UtilidadesView.vue";
 
 
 
@@ -22,7 +23,12 @@ const routes = [
   {
     path: "/Estadisticas",
     name:"Estadisticas",
-    component:EstadisticasView
+    component: EstadisticasView
+  },
+  {
+    path: "/Utilidades",
+    name:"Utilidades",
+    component: UtilidadesView
   },
   {
     path: "/about",

@@ -14,7 +14,7 @@
         </v-row>
         <v-row >
           <v-col class="flex-grow-0 flex-shrink-0">
-            <LeftMenu v-show="!isHome"/>
+            <LeftMenu v-show="false"/>
           </v-col>
           <v-col class="flex-grow-1 flex-shrink-0">
           <router-view @home="isHome = true" />
