@@ -15,7 +15,7 @@
                 :style="!proyecto.titleColor.dark ? 'color : black' : 'color : white'"
               >{{proyecto.codigo}} - {{proyecto.name}}</v-card-title>
               <v-spacer />
-              <v-menu transition="slide-x-transition" bottom right offset-x="true">
+              <v-menu transition="slide-x-transition" bottom right :offset-x="true">
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn icon v-bind="attrs" v-on="on">
                     <v-icon
@@ -72,12 +72,15 @@
 
 <script>
 import ModalProyectoForm from "@/components/popups/ModalProyectoForm.vue";
+import axios from "axios";
+
 export default {
   name: "TimeTracker",
   data() {
     return {
       showModalProyectos: false,
       isPlaying: false,
+      updater:null,
       titleColors: [
         { name: "Azul", color: "#0079C4", dark: true },
         { name: "Cian", color: "#26C1C9", dark: true },
@@ -90,24 +93,24 @@ export default {
         { name: "Blanco", color: "white", dark: false }
       ],
       proyectos: [
-        {
-          codigo: "4011",
-          name: "Evolutivos Movistar Cloud",
-          isPlaying: false,
-          time: 0,
-          timer: null,
-          titleColor: { name: "Azul", color: "#0079C4", dark: true },
-          tareas: [{ title: "Hacer cosas", completed: false }]
-        },
-        {
-          codigo: "1234",
-          name: "PCM - NEN",
-          isPlaying: false,
-          time: 0,
-          timer: null,
-          titleColor: { name: "Azul", color: "#0079C4", dark: true },
-          tareas: []
-        }
+        // {
+        //   codigo: "4011",
+        //   name: "Evolutivos Movistar Cloud",
+        //   isPlaying: false,
+        //   time: 0,
+        //   timer: null,
+        //   titleColor: { name: "Azul", color: "#0079C4", dark: true },
+        //   tareas: [{ title: "Hacer cosas", completed: false }]
+        // },
+        // {
+        //   codigo: "1234",
+        //   name: "PCM - NEN",
+        //   isPlaying: false,
+        //   time: 0,
+        //   timer: null,
+        //   titleColor: { name: "Azul", color: "#0079C4", dark: true },
+        //   tareas: []
+        // }
       ]
     };
   },
@@ -152,15 +155,46 @@ export default {
 
       time = hours + ":" + minutes + ":" + seconds;
       return time;
-    }
+    },
+    addProyectosToList(proyectos){
+      proyectos.forEach((p) =>{
+        var pVue = {}
+        pVue.codigo = p.codigo;
+        pVue.name = p.name;
+        pVue.isPlaying= false;
+        pVue.time= 0;
+        pVue.timer= null;
+        pVue.titleColor= { "name": "Azul", "color": "#0079C4", "dark": "true" };
+        this.proyectos.push(pVue);
+      })
+  }
   },
+
+
+codigo: "4011",
+        //   name: "Evolutivos Movistar Cloud",
+        //   isPlaying: false,
+        //   time: 0,
+        //   timer: null,
+        //   titleColor: { name: "Azul", color: "#0079C4", dark: true },
+        //   tareas: [{ title: "Hacer cosas", completed: false }]
+
+
   destroyed() {
     //backend update
     console.log(this.proyectos);
+    axios.post("http://localhost:8081/api/v1/proyectos/saveAll", this.proyectos);
+    clearInterval(this.updater);
   },
   mounted() {
     //update proyects in backend
-    setInterval(
+    axios.get("http://localhost:8081/api/v1/proyectos/get").then(response => {
+      console.log(response.data);
+      this.addProyectosToList(response.data);
+    })
+
+    
+    this.updater = setInterval(
       () => console.log("update de proyectos en back -> " + this.proyectos),
       10000
     );
