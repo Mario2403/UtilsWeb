@@ -9,7 +9,7 @@
       <v-container >
         <v-row class = "d-flex" width="400">
           <v-col>
-        <BarraSuperior />
+        <BarraSuperior v-if="this.$route.name != 'Login'"></BarraSuperior>
           </v-col>
         </v-row>
         <v-row >

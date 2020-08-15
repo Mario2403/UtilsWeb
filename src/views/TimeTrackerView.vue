@@ -183,12 +183,12 @@ codigo: "4011",
   destroyed() {
     //backend update
     console.log(this.proyectos);
-    axios.post("http://localhost:8081/api/v1/proyectos/saveAll", this.proyectos);
+    axios.post("/api/v1/proyectos/saveAll", this.proyectos);
     clearInterval(this.updater);
   },
   mounted() {
     //update proyects in backend
-    axios.get("http://localhost:8081/api/v1/proyectos/get").then(response => {
+    axios.get("/api/v1/proyectos/get").then(response => {
       console.log(response.data);
       this.addProyectosToList(response.data);
     })
