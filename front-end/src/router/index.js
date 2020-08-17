@@ -7,9 +7,8 @@ import UtilidadesView from "../views/UtilidadesView.vue";
 import TimeTrackerView from "../views/TimeTrackerView.vue";
 import LoginView from "../views/LoginView.vue";
 
-
-
 Vue.use(VueRouter);
+
 
 const routes = [
   {
