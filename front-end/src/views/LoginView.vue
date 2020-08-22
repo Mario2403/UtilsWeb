@@ -54,13 +54,19 @@ export default {
   },
   methods: {
     login() {
-        console.log("LOGIN");
+      console.log("LOGIN");
+
+      var params = {"username" : this.username, "pwd" : this.pwd};
+
       axios
-        .post("/login", {username: this.username, pwd: this.pwd}
-
+        .post(
+          "/api/v1/user/login",
+          params
         )
-        .then(response => Cookies.set("userLogged", response.data));
-
+        .then(response => {
+          Cookies.set("userLogged", response.data);
+          console.log("LOGGED");
+        });
     }
   }
 };

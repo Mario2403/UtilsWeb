@@ -5,14 +5,14 @@
 
     <groupId>es.utilsWeb</groupId>
     <artifactId>utils-web</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>pom</packaging>
 
     <name>Utils-web</name>
 
     <modules>
-        <module>back-end</module>
         <module>front-end</module>
+        <module>back-end</module>
     </modules>
 
 

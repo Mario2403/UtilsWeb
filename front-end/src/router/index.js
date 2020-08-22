@@ -17,27 +17,27 @@ const routes = [
     component: Home
   },
   {
-    path:"/Calendario",
+    path:"/calendario",
     name: "Calendario",
     component: CalendarioView
   },
   {
-    path: "/Estadisticas",
+    path: "/estadisticas",
     name:"Estadisticas",
     component: EstadisticasView
   },
   {
-    path: "/Login",
+    path: "/login",
     name:"Login",
     component: LoginView
   },
   {
-    path: "/ControlHoras",
+    path: "/controlHoras",
     name:"Control de Horas",
     component: TimeTrackerView
   },
   {
-    path: "/Utilidades",
+    path: "/utilidades",
     name:"Utilidades",
     component: UtilidadesView
   },

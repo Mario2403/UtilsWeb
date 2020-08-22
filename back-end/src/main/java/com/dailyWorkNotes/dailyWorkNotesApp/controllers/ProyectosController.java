@@ -18,7 +18,6 @@ public class ProyectosController {
     @GetMapping(value="/get", produces =  "application/json")
     public ResponseEntity<String> getProyectos(){
         String response = "";
-
         response = " [{" +
                 "\"codigo\": \"4011\"," +
                 "\"name\": \"Evolutivos Movistar Cloud\"" + //TODO Añadir Time

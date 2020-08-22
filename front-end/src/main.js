@@ -8,6 +8,13 @@ import axios from "axios"
 axios.defaults.baseURL = "http://192.168.1.68:8081"
 Vue.config.productionTip = false;
 
+if (Vue.config.productionTip){
+  axios.defaults.baseURL = "http://192.168.1.68:8080"
+}else{
+  axios.defaults.baseURL = "http://192.168.1.68:8081"
+}
+
+
 new Vue({
   store,
   vuetify,
