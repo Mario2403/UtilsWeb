@@ -1,7 +1,7 @@
 package com.dailyWorkNotes.dailyWorkNotesApp.controllers;
 
-import com.dailyWorkNotes.dailyWorkNotesApp.beans.User;
-import com.dailyWorkNotes.dailyWorkNotesApp.beans.request.UserRequestBean;
+import com.dailyWorkNotes.dailyWorkNotesApp.beans.request.UserRequest;
+import com.dailyWorkNotes.dailyWorkNotesApp.beans.response.UserResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -17,10 +17,10 @@ public class UserController {
 
     @CrossOrigin
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody UserRequestBean userRequest){
+    public ResponseEntity<UserResponse> login(@RequestBody UserRequest userRequest){
         System.out.println("login");
-//        String token = getJWTToken(username);
-        return new ResponseEntity<String>("OK", HttpStatus.OK);
+        UserResponse userResponse = new UserResponse("Mario", "FAKE_TOKEN");
+        return new ResponseEntity<UserResponse>(userResponse, HttpStatus.OK);
     }
 //
 //    private String getJWTToken(String username) {

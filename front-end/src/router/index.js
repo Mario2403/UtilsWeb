@@ -9,7 +9,6 @@ import LoginView from "../views/LoginView.vue";
 
 Vue.use(VueRouter);
 
-
 const routes = [
   {
     path: "/",
@@ -17,7 +16,7 @@ const routes = [
     component: Home
   },
   {
-    path:"/calendario",
+    path: "/calendario",
     name: "Calendario",
     component: CalendarioView
   },
@@ -57,3 +56,14 @@ const router = new VueRouter({
 });
 
 export default router;
+
+router.beforeEach((to, fromn, next) =>{
+const publicPages = ['/login'];
+const authRequired = !publicPages.includes(to.path);
+const loggedIn = localStorage.getItem('user');
+
+if( authRequired && !loggedIn){
+  return next('/login');
+}
+next();
+})

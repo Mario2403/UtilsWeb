@@ -31,7 +31,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary" @click="login()">Login</v-btn>
+                <v-btn color="primary" @click="handleSubmit()">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -67,6 +67,15 @@ export default {
           Cookies.set("userLogged", response.data);
           console.log("LOGGED");
         });
+    },
+
+
+    handleSubmit(){
+      const { dispatch } = this.$store;
+      const { username, pwd } = this;
+      if (username != "" && pwd != ""){
+        dispatch('authentication/login', { username, pwd });
+        }
     }
   }
 };

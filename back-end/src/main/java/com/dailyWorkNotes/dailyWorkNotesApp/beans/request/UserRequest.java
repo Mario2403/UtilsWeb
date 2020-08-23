@@ -1,11 +1,11 @@
 package com.dailyWorkNotes.dailyWorkNotesApp.beans.request;
 
-public class UserRequestBean {
+public class UserRequest {
 
     private String username;
     private String pwd;
 
-    public UserRequestBean(String username, String pwd) {
+    public UserRequest(String username, String pwd) {
         this.username = username;
         this.pwd = pwd;
     }
