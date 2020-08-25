@@ -60,6 +60,8 @@
 </template>
 
 <script>
+
+
 export default {
     name : "TimeCard",
     props:['proyecto', 'titleColors'],

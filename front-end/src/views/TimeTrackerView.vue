@@ -1,4 +1,5 @@
 <template v-slot:activator="{ on, attrs }">
+<v-card outlined>
   <div>
     <ModalProyectoForm v-if="showModalProyectos" @close="showModalProyectos = false"></ModalProyectoForm>
     <v-row>
@@ -14,6 +15,7 @@
       </v-col>
     </v-row>
   </div>
+</v-card>
 </template>
 
 <script>

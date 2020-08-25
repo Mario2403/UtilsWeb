@@ -1,6 +1,8 @@
 <template >
 <div>
+  <v-card outlined>
 <CalendarioComp/>
+  </v-card>
 </div>
 </template>
 

@@ -30,7 +30,7 @@ export default {
         { title: "Notas", icon: "📝", route:"/" },
         { title: "Estadísticas", icon: "📈", route:"Estadisticas"},
         { title: "Utilidades", icon: "📐", route:"/Utilidades" },
-      ]
+      ],
     }
   }
 };

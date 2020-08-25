@@ -3,25 +3,25 @@
    <title>UtilsWeb</title>
    <v-container>
     <v-layout justify-center>
-                <v-flex class="text-xs-center">
+                <v-flex class="">
 
     <v-app>
       <v-container >
-        <v-row class = "d-flex" width="400">
+        <v-row class = "d-flex" no-gutters>
           <v-col>
         <BarraSuperior v-if="this.$route.name != 'Login'"></BarraSuperior>
           </v-col>
         </v-row>
         <v-row >
-          <v-col class="flex-grow-0 flex-shrink-0">
-            <LeftMenu v-show="false"/>
+          <v-col class="flex-grow-0 flex-shrink-0" :width="325">
+            <LeftMenu v-show="true"></LeftMenu>
           </v-col>
           <v-col class="flex-grow-1 flex-shrink-0">
           <router-view @home="isHome = true" />
           </v-col>
         </v-row>
       </v-container>
-      <Footer />
+      <Footer ></Footer>
     </v-app>
                 </v-flex>
     </v-layout>
@@ -54,11 +54,9 @@ export default {
 };
 </script>
 
-<style >
-#div {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+<style scoped>
+.container{
+  max-width: 100%;
+  margin-left: 0px;
 }
 </style>

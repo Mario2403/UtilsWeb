@@ -45,3 +45,6 @@ target/
 
 ### VS Code ###
 .vscode/
+Dockerfile
+back-end/src/main/webapp/
+front-end/dist/
