@@ -15,7 +15,7 @@
         <v-card-actions>
           <v-spacer />
 
-          <v-btn v-for="icon in icons" :key="icon.name" icon>
+          <v-btn v-for="icon in icons" :key="icon.name" icon :href="icon.link">
             <v-icon size="24px" >{{ icon.icon }}</v-icon>
           </v-btn>
 
@@ -38,8 +38,9 @@ export default {
   data() {
     return {
       icons: [
-        { name: "linkedIn", icon: "mdi-linkedin" },
-        { name: "twitter", icon: "mdi-twitter"},
+        { name: "linkedIn", icon: "mdi-linkedin", link:"https://www.google.com" },
+        { name: "twitter", icon: "mdi-twitter",  link:"https://www.google.com" },
+        {name: "github", icon: "mdi-github",  link:"https://github.com/Mario2403/UtilsWeb" }
       ],
       showModal: false
     };
@@ -49,7 +50,9 @@ export default {
   }
 };
 </script>
-
+<v-btn icon href="https://github.com/Mario2403/UtilsWeb">
+        <v-icon large :color="this.$vuetify.theme.dark ? '#FFFFFF' : '#000000' ">mdi-github</v-icon>
+      </v-btn>
 
 <style lang="scss" scoped>
 .year-and-name {
