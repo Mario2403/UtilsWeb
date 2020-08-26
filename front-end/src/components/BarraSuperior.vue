@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-app-bar elevation="0" color="#FFFFFF" >
+    <v-app-bar elevation="0" >
       <router-link :to="{name: 'Home'}">
         <v-btn icon large>
-          <v-icon color="#000000">mdi-home</v-icon>
+          <v-icon :color="this.$vuetify.theme.dark ? '#FFFFFF' : '#000000' ">mdi-home</v-icon>
         </v-btn>
       </router-link>
       <v-spacer />
@@ -13,7 +13,7 @@
 
       <v-spacer />
       <v-btn icon href="https://github.com/Mario2403/UtilsWeb">
-        <v-icon large color="#000000">mdi-github</v-icon>
+        <v-icon large :color="this.$vuetify.theme.dark ? '#FFFFFF' : '#000000' ">mdi-github</v-icon>
       </v-btn>
     </v-app-bar>
   </div>
@@ -22,12 +22,11 @@
 <script>
 export default {
   name: "BarraSuperior",
-
-  computed: {
-    title: function() {
-      return this.$route.name;
+  data() {
+    return{
     }
-  }
+  },
+
 };
 </script>
 
@@ -44,4 +43,5 @@ export default {
   padding-left: 15px;
   font-size: 15pt;
 }
+
 </style>
