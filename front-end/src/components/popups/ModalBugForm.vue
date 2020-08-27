@@ -2,7 +2,7 @@
   <transition name="fade" appear>
     <div class="modal-mask">
       <div class="modal-wrapper" @click="$emit('close')">
-        <div class="modal-container" @click.stop >
+        <div :class="$vuetify.theme.dark ? 'modal-container-dark' : 'modal-container-light'" @click.stop >
           <BugForm @close="$emit('close')" ></BugForm>
         </div>
       </div>
@@ -39,11 +39,22 @@ export default {
   vertical-align: middle;
 }
 
-.modal-container {
+.modal-container-light {
   width: 50%;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-container-dark {
+  width: 50%;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #232323;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
