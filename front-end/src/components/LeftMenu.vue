@@ -1,8 +1,9 @@
 <template>
   <v-navigation-drawer
-    v-model="drawer"
+    stateless
     permanent
-    :mini-variant="false"
+    value="true"
+    :mini-variant="true"
     :expand-on-hover="true"
     :color="$vuetify.theme.dark  ? '#232323' : '#FFFFFF'"
     hide-overlay
@@ -11,14 +12,14 @@
     <v-img v-if="!$vuetify.theme.dark" src="../assets/Aperture-dark.png" min-height="90" contain></v-img>
     <v-img v-if="$vuetify.theme.dark" src="../assets/Aperture-light.png" min-height="90" contain></v-img>
 
-    <v-list nav>
+    <v-list nav dense>
+     
       <v-list-group
         value="true"
-        sub-group
-        no-action
         :key="group.name"
         v-for="group in groups"
-        id="group"
+        :prepend-icon="group.icon"
+
       >
         <template v-slot:activator>
           <v-list-item-title
@@ -34,8 +35,10 @@
           v-for="item in group.groupItems"
           :to="item.route"
           class="item"
+          :prepend="item.icon"
+          value="true"
         >
-          <v-icon :color="darkMode ? '#FFFFFF' : '#666666'">{{ item.icon }}</v-icon>
+          <v-icon :color="$vuetify.theme.dark ? '#FFFFFF' : '#666666'">{{ item.icon }}</v-icon>
 
           <v-list-item-content>
             <v-list-item-title
@@ -55,12 +58,11 @@ export default {
   data() {
     return {
       darkMode: true,
-      drawer: true,
-      group: null,
       expandOnHover: true,
       groups: [
         {
           name: "Control",
+          icon: "mdi-file-chart",
           groupItems: [
             {
               title: "Control de horas",
@@ -76,6 +78,8 @@ export default {
         },
         {
           name: "Tareas",
+          icon: "mdi-calendar-check",
+
           groupItems: [
             { title: "Notas", icon: "mdi-note-outline", route: "/" },
             {
@@ -88,6 +92,7 @@ export default {
 
         {
           name: "Estadisticas",
+          icon: "mdi-chart-bar",
           groupItems: [
             {
               title: "Estadísticas",
@@ -98,18 +103,15 @@ export default {
         },
         {
           name: "Otros",
+          icon: "mdi-dots-horizontal-circle-outline",
           groupItems: [
             { title: "Utilidades", icon: "mdi-ruler", route: "Utilidades" }
           ]
         }
       ]
     };
-  },
-  watch: {
-    group() {
-      this.drawer = true;
-    }
   }
+
 };
 </script>
 

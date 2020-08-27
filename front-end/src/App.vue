@@ -22,9 +22,11 @@
               </v-btn>
             </v-app-bar>
             <LeftMenu v-show="true"></LeftMenu>
+          <!-- Contenido de la vista -->
             <v-content>
               <router-view @home="isHome = true" />
             </v-content>
+
             <Footer></Footer>
           </v-app>
         </v-flex>
