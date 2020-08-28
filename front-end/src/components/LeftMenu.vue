@@ -3,7 +3,7 @@
     stateless
     permanent
     value="true"
-    :mini-variant="true"
+    :mini-variant="false"
     :expand-on-hover="true"
     :color="$vuetify.theme.dark  ? '#232323' : '#FFFFFF'"
     hide-overlay
@@ -98,6 +98,17 @@ export default {
               title: "Estadísticas",
               icon: "mdi-chart-areaspline",
               route: "Estadisticas"
+            }
+          ]
+        },
+               {
+          name: "Configuración",
+          icon: "mdi-cog",
+          groupItems: [
+            {
+              title: "Proyectos",
+              icon: "mdi-briefcase",
+              route: "Proyectos"
             }
           ]
         },

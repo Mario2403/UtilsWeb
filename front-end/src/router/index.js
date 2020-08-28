@@ -7,7 +7,7 @@ import UtilidadesView from "../views/UtilidadesView.vue";
 import TimeTrackerView from "../views/TimeTrackerView.vue";
 import LoginView from "../views/LoginView.vue";
 import TestView from "../views/TestView.vue";
-
+import ProyectosView from "../views/ProyectosView.vue";
 
 Vue.use(VueRouter);
 
@@ -46,6 +46,11 @@ const routes = [
     path: "/test",
     name:"Test",
     component: TestView
+  },
+  {
+    path: "/proyectos",
+    name:"Proyectos",
+    component: ProyectosView
   },
   {
     path: "/about",
